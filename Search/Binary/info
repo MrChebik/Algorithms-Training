@@ -1,0 +1,27 @@
+Binary Search uses a sorted array.
+
+Analogous to binary search is a game to guess the number.
+// --- Array ---
+ 1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20
+// --- You have to guess the number that I want (9) ---
+So, you ask me, the number 10 is the unknown number? or more correct number?
+ 1  2  3  4  5  6  7  8  9 |10| 11 12 13 14 15 16 17 18 19 20
+-- No, Yes
+You discard the other elements that go after 10, and at the same time, narrowing your search by -1:
+ 1  2  3  4  5  6  7  8  9 || 10 11 12 13 14 15 16 17 18 19 20
+ 1  2  3  4  5  6  7  8  9
+The number 5 more than the correct number?
+ 1  2  3  4  |5|  6  7  8  9
+-- No
+ 1  2  3  4  5 || 6  7  8  9
+ 6  7  8  9
+The number 7 under the correct number?
+ 6  |7|  8  9
+-- No
+ 6  7 ||  8  9
+ 8  9
+The number 8 is the unknown number? or more correct number?
+ |8|  9
+ ||  9
+-- No, Yes
+Your number is 9!
