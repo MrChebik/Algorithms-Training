@@ -1,3 +1,5 @@
+// --- O(log N) ---
+
 Binary Search uses a sorted array.
 
 Analogous to binary search is a game to guess the number.
