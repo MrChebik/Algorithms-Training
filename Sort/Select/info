@@ -1,0 +1,28 @@
+// --- O(N^2) ---
+Quickly than Bubble sort
+
+// --- Example ---
+ 2 16 8 18 12 1 7 14 10 15 9 13 6 5 4 3 11 17 20 19
+You take the first element and start find fewer element.
+ [2] |16| 8 18 12 1 7 14 10 15 9 13 6 5 4 3 11 17 20 19
+16 less than 2?
+-- No
+ [2] 16 |8| 18 12 1 7 14 10 15 9 13 6 5 4 3 11 17 20 19
+// --- And so on ---
+If you see less than stand in [ ], remember it and compare with him elements.
+ [2] 16 8 18 12 |1| 7 14 10 15 9 13 6 5 4 3 11 17 20 19
+1 less than 2?
+-- Yes
+ [2] 16 8 18 12 1 |7| 14 10 15 9 13 6 5 4 3 11 17 20 19
+                ^
+At the end, you swap this elements.
+ [2] 16 8 18 12 1 7 14 10 15 9 13 6 5 4 3 11 17 20 |19|
+                ^
+19 less than 1?
+-- No
+ [1] 16 8 18 12 2 7 14 10 15 9 13 6 5 4 3 11 17 20 19
+And restart the search, where the start index will be +1
+ 1 [16] |8| 18 12 2 7 14 10 15 9 13 6 5 4 3 11 17 20 19
+8 less than 16?
+-- No
+// --- And so on ---

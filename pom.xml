@@ -11,6 +11,8 @@
     <modules>
         <module>Search/Binary</module>
         <module>Sort/Bubble</module>
+        <module>Sort/Insert</module>
+        <module>Sort/Select</module>
     </modules>
 
 </project>
