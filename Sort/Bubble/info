@@ -1,0 +1,22 @@
+// --- O(N^2) ---
+
+// --- Example ---
+You have bubbles in the array.
+ 2 16 8 18 12 1 7 14 10 15 9 13 6 5 4 3 11 17 20 19
+If you see a bubble (left) more than the neighboring bubble (right), then you swap this bubbles. Otherwise, this bubbles remain in place and we compare next bubbles, go to +1.
+// --- 2 less than 16 ---
+ |2| <-> |16|
+      ^
+// --- 16 more than 8 ---
+ |16| <-> |8|
+  ^
+// --- Swap ---
+ |8| <-> |16|
+// --- And so on... ---
+If you have made the biggest bubble in the end of array, then you start from the beginning. But, end of the comparison will be re big bubble.
+ |5| <-> |4| 3 6 7
+  ^
+  4 |5| <-> |3| 6 7
+     ^
+  4 3 |5| 11 12
+// --- And restart ---
