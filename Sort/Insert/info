@@ -1,0 +1,34 @@
+// --- O(N^2) --- 2x quickly than Bubble sort and normally, slightly faster than Select sort
+
+// --- Example ---
+ 2 16 8 18 12 1 7 14 10 15 9 13 6 5 4 3 11 17 20 19
+You start at the second element, or more, if you know last index of sorted order.
+ 2 || [16] 8 18 12 1 7 14 10 15 9 13 6 5 4 3 11 17 20 19
+You put this element in memory.
+ 2 || [  ] 8 18 12 1 7 14 10 15 9 13 6 5 4 3 11 17 20 19
+And begin to look a place for this number in the sorted array.
+16 more than 2? and you do this, until it was at first index.
+-- Yes
+ 2 [16] || 8 18 12 1 7 14 10 15 9 13 6 5 4 3 11 17 20 19
+ 2 16 || [8] 18 12 1 7 14 10 15 9 13 6 5 4 3 11 17 20 19
+ 2 16 || [ ] 18 12 1 7 14 10 15 9 13 6 5 4 3 11 17 20 19
+8 more than 16?
+-- No
+8 more than 2?
+-- Yes
+ 2 [8] 16 || 18 12 1 7 14 10 15 9 13 6 5 4 3 11 17 20 19
+ 2 8 16 || [18] 12 1 7 14 10 15 9 13 6 5 4 3 11 17 20 19
+ 2 8 16 || [  ] 12 1 7 14 10 15 9 13 6 5 4 3 11 17 20 19
+18 more than 16?
+-- Yes
+ 2 8 16 [18] || 12 1 7 14 10 15 9 13 6 5 4 3 11 17 20 19
+ 2 8 16 18 || [12] 1 7 14 10 15 9 13 6 5 4 3 11 17 20 19
+ 2 8 16 18 || [  ] 1 7 14 10 15 9 13 6 5 4 3 11 17 20 19
+12 more than 18?
+-- No
+12 more than 16?
+-- No
+12 more than 8?
+-- Yes
+ 2 8 [12] 16 18 || 1 7 14 10 15 9 13 6 5 4 3 11 17 20 19
+// --- And so on ---
