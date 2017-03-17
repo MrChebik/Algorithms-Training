@@ -13,6 +13,7 @@
         <module>Sort/Bubble</module>
         <module>Sort/Insert</module>
         <module>Sort/Select</module>
+        <module>Structure/Stack</module>
     </modules>
 
 </project>

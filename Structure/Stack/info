@@ -1,0 +1,31 @@
+// --- O(1) ---
+
+You can put and get/remove element quickly, but this element is at top of the Stack.
+The principle of this structure -- LIFO (Last-In-First-Out).
+
+// --- Example ---
+// --- Stack with 5 size ---
+| |
+| |
+| |
+| |
+| |
+    -- top
+// --- Put element 3 ---
+| |
+| |
+| |
+| |
+|3| -- top
+// --- Put still 2 elements ---
+| |         | |         | |
+| |         | |         | |
+| |         | |         |2| -- top
+| |         |7| -- top  |7|
+|3| -- top  |3|         |3|
+// --- Remove (get) element ---
+| |         | |
+| |         | |
+|2| -- top  | |
+|7|         |7| -- top
+|3|         |3|
