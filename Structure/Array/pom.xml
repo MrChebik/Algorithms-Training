@@ -12,5 +12,12 @@
 
     <artifactId>structure-array-example</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>algorithms.example</groupId>
+            <artifactId>search-binary-example</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 </project>
