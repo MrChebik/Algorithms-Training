@@ -27,4 +27,72 @@ public class BubbleSort {
 
         return array;
     }
+
+    /**
+     * Tasks
+     *
+    // Sort from left to right. At the end, changes direction from right to left
+    public static int[] bubbleAndReverse(int[] array) {
+        int k, i, j = 0, l;
+
+        for (k = array.length - 1, l = 0; k > array.length / 2; k--, l++) {
+            for (i = j; i < k; i++) {
+                if (array[i] > array[i + 1]) {
+                    array[i] = swap(array[i + 1], array[i + 1] = array[i]);
+                }
+            }
+            for (j = i; j > l; j--) {
+                if (array[j] < array[j - 1]) {
+                    array[i] = swap(array[i + 1], array[i + 1] = array[i]);
+                }
+            }
+        }
+
+        return array;
+    }
+
+    // Sort of odd
+    // 0 2 4 6 ...
+    // 1 3 5 7 ...
+    // --- Support asynchronous sorting ---
+    public static int[] oddEvenSort(int[] array) {
+        boolean isSorted = false;
+
+        while (!isSorted) {
+            isSorted = true;
+            for (int i = 1; i < array.length - (array.length % 2 == 0 ? 2 : 0); i += 2) {
+                if (array[i] > array[i + 1]) {
+                    array[i] = swap(array[i + 1], (array[i + 1] = array[i]));
+                    isSorted = false;
+                }
+            }
+
+            for (int i = 0; i < array.length - (array.length % 2 == 0 ? 0 : 2); i += 2) {
+                if (array[i] > array[i + 1]) {
+                    array[i] = swap(array[i + 1], (array[i + 1] = array[i]));
+                    isSorted = false;
+                }
+            }
+        }
+
+        return array;
+    }
+
+    // Other realization without asynchronous sorting
+    public static int[] evenOddSort(int[] array) {
+        for (int k = array.length; k > 0; k--) {
+            for (int i = k % 2 == 0 ? 0 : 1; i < array.length - (k % 2 == 0 ? 0 : 1); i += 2) {
+                if (array[i] > array[i + 1]) {
+                    array[i] = swap(array[i + 1], array[i + 1] = array[i]);
+                }
+            }
+        }
+
+        return array;
+    }
+
+    public static int swap(int a, int b) {
+        return a;
+    }
+     */
 }
