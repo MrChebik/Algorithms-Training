@@ -82,7 +82,7 @@ public class HighArray extends LowArray {
 
         for (int i = 0, k = 0; i < array.length; i++) {
             temp = 0;
-            for (int j = i; j < array.length; j++) {
+            for (int j = 0; j < array.length; j++) {
                 if (array[i] == subArray[j]) {
                     temp++;
                     break;
