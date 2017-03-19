@@ -16,6 +16,7 @@
         <module>Structure/Stack</module>
         <module>Structure/Array</module>
         <module>Structure/Queue</module>
+        <module>Structure/Deque</module>
     </modules>
 
 </project>

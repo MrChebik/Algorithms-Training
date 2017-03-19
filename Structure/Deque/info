@@ -1,0 +1,47 @@
+// --- O(1) ---
+
+You can put and get/remove element quickly, but this element is at both or top of the Deque.
+The principle of this structure -- LIFO (first/both) /FIFO (last/top) (Last-In-First-Out/First-In-First-Out).
+Rules for Stack and Queue Structures work. Stack and Queue checks the elements if element == 0, they can set element to
+the cell.
+
+// --- Example ---
+// --- Deque with 5 size ---
+    -- first
+|0|
+|0|
+|0|
+|0|
+|0| -- front
+    -- last
+// --- Put 2 elements to the first ---
+|1| -- first  |1|
+|0|           |2| -- first
+|0|           |0|
+|0|           |0|
+|0| -- front  |0| -- front
+    -- rear   |0| -- rear
+// --- Put still 3 elements to the last ---
+|1|           |1|           |1|
+|2| -- first  |2|           |2|
+|0|           |0|           |5| -- rear
+|0|           |4| -- rear   |4|
+|3| -- fr/rr  |3| -- front  |3| -- front
+// --- Remove first element ---
+|1| -- first
+|0|
+|5| -- rear
+|4|
+|3| -- front
+// --- Remove 2 lasts elements ----
+|1| -- first  |1| -- first
+|0|           |0|
+|5| -- rear   |5| -- rr/fr
+|4| -- front  |0|
+|0|           |0|
+// --- Put 2 elements to the last
+|1| -- first  |1| -- first
+|4| -- rear   |4|
+|5| -- front  |5| -- front
+|0|           |0|
+|0|           |3| -- rear
