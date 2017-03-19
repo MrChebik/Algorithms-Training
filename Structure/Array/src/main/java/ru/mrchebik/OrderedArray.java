@@ -5,10 +5,11 @@ package ru.mrchebik;
  */
 public class OrderedArray {
     private long[] array;
-    private int nElemsOrder = -1;
+    private int nElemsOrder;
 
     public OrderedArray(int size) {
         array = new long[size];
+        nElemsOrder = -1;
     }
 
     public int find(int value) {

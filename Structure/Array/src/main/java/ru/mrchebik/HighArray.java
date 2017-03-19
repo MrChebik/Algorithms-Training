@@ -4,10 +4,11 @@ package ru.mrchebik;
  * Created by mrchebik on 17.03.17.
  */
 public class HighArray extends LowArray {
-    private int nElems = 0;
+    private int nElems;
 
     public HighArray(int size) {
         super(size);
+        nElems = 0;
     }
 
     private int find(long value) {
