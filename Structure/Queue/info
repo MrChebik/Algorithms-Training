@@ -5,11 +5,12 @@ The principle of this structure -- FIFO (First-In-First-Out).
 
 // --- Example ---
 // --- Queue with 5 size ---
-| | -- rear
+| |
 | |
 | |
 | |
 | | -- front
+    -- rear
 // --- Put element 3 ---
 | |
 | |

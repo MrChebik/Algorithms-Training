@@ -16,7 +16,7 @@ public class Queue {
 
     public void insert(long item) {
         if (rear == queueArray.length - 1) {
-            rear = - 1;
+            rear = -1;
         }
         queueArray[++rear] = item;
     }
