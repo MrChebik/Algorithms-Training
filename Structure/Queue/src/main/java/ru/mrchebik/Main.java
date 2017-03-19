@@ -26,5 +26,18 @@ public class Main {
         while (!queue.isEmpty()) {
             System.out.print(queue.remove() + " ");
         }
+        System.out.println();
+
+        PriorityQueue priorityQueue = new PriorityQueue(5);
+
+        priorityQueue.insert(30);
+        priorityQueue.insert(90);
+        priorityQueue.insert(60);
+        priorityQueue.insert(50);
+        priorityQueue.insert(100);
+
+        while (!priorityQueue.isEmpty()) {
+            System.out.print(priorityQueue.remove() + " ");
+        }
     }
 }

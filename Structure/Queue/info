@@ -1,3 +1,4 @@
+// ===== QUEUE =====
 // --- O(1) ---
 
 You can put and get/remove element quickly, but this element is at top of the Queue.
@@ -36,3 +37,33 @@ and so on until you reach the border front. ---
 |5 | -- front  |5 | -- front
 |  |           |  |
 |  |           |18| -- rear
+
+// ===== PRIORITY QUEUE =====
+// --- set        O(N) ---
+// --- get/remove O(1) ---
+
+Principle same of Queue, but values saved through priority (sort) and you can get only first item.
+For example, if you set this values: 90 20 10 70 50
+You got this Queue: 10 20 50 70 90
+
+// --- Example ---
+// --- Priority Queue with 5 size ---
+| |
+| |
+| |
+| |
+| | -- front / rear
+When you add element, this element checks with other elements.
+// --- Put 3 elements ---
+| |    (9)    | |     (3)   | |
+| |  (9 > 7)  | |  !(3 > 7) | |
+| |           | |           |9| -- rear
+| |           |9| -- rear   |7|
+|7| -- fr/rr  |7| -- front  |3| -- front
+How you can notice, front always remains on 0.
+// --- Remove (get) element ---
+| |           | |
+| |           | |
+|9| -- rear   | |
+|7|           |9| -- rear
+|3| -- front  |7| -- front
