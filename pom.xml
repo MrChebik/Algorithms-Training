@@ -15,6 +15,7 @@
         <module>Sort/Select</module>
         <module>Structure/Stack</module>
         <module>Structure/Array</module>
+        <module>Structure/Queue</module>
     </modules>
 
 </project>

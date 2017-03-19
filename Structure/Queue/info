@@ -1,0 +1,37 @@
+// --- O(1) ---
+
+You can put and get/remove element quickly, but this element is at top of the Queue.
+The principle of this structure -- FIFO (First-In-First-Out).
+
+// --- Example ---
+// --- Queue with 5 size ---
+| | -- rear
+| |
+| |
+| |
+| | -- front
+// --- Put element 3 ---
+| |
+| |
+| |
+| |
+|3| -- front - rear
+// --- Put still 2 elements ---
+| |           | |           | |
+| |           | |           | |
+| |           | |           |2| -- rear
+| |           |7| -- rear   |7|
+|3| -- fr/rr  |3| -- front  |3| -- front
+// --- Remove (get) element ---
+| |           | |
+| |           | |
+|2| -- rear   | |
+|7|           |2| -- rear
+|3| -- front  |7| -- front
+// --- If 'rear' at the end and 'front' above start, when you add an item 'rear' will skip to the beginning of the queue
+and so on until you reach the border front. ---
+|11| -- rear   |11|
+|7 |           |7 |
+|5 | -- front  |5 | -- front
+|  |           |  |
+|  |           |18| -- rear
