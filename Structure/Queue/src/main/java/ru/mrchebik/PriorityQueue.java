@@ -45,4 +45,53 @@ public class PriorityQueue {
     public boolean isFull() {
         return nItems == priorityArray.length;
     }
+
+    /**
+     * Tasks
+     *
+    // --- set        O(1) ---
+    // --- get/remove O(N) ---
+
+    public void insertQuickly(long item) {
+        priorityArray[nItems++] = item;
+    }
+
+    public long removeSlow() {
+        int j;
+        long item = priorityArray[0];
+        int index = 0;
+
+        for (j = 1; j < nItems; j++) {
+            if (item > priorityArray[j]) {
+                item = priorityArray[j];
+                index = j;
+            }
+        }
+
+        for (int i = index; i < nItems - 1; i++) {
+            priorityArray[i] = priorityArray[i + 1];
+        }
+        nItems--;
+
+        return item;
+    }
+
+    // For slow
+    @Override
+    public String toString() {
+        long[] copy = priorityArray.clone();
+
+        int in, i;
+
+        for (i = 1; i < copy.length; i++) {
+            long temp = copy[in = i];
+            while (in > 0 && copy[in - 1] >= temp) {
+                copy[in] = copy[--in];
+            }
+            copy[in] = temp;
+        }
+
+        return Arrays.toString(copy);
+    }
+     */
 }
