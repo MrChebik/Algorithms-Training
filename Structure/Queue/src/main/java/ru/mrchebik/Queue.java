@@ -49,4 +49,29 @@ public class Queue {
             return (queueArray.length - front) + (rear + 1);
         }
     }
+
+    /**
+     * Tasks
+     *
+    // Output array
+    @Override
+    public String toString() {
+        String output = "";
+
+        if (rear != -1) {
+            for (int i = front; i != rear; i++) {
+                if (i == queueArray.length) {
+                    i = 0;
+                }
+                output += queueArray[i] + " ";
+                if (i == 0) {
+                    i = -1;
+                }
+            }
+            return output;
+        } else {
+            return "-1";
+        }
+    }
+     */
 }
