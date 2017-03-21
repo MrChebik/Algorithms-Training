@@ -50,28 +50,28 @@ public class Queue {
         }
     }
 
-    /**
-     * Tasks
-     *
     // Output array
     @Override
     public String toString() {
         String output = "";
 
         if (rear != -1) {
-            for (int i = front; i != rear; i++) {
+            int i = front - 1;
+            do {
+                i++;
                 if (i == queueArray.length) {
                     i = 0;
                 }
-                output += queueArray[i] + " ";
-                if (i == 0) {
-                    i = -1;
+                if (i == 0 && rear == 0) {
+                    return output += queueArray[i];
+                } else {
+                    output += queueArray[i] + " ";
                 }
-            }
+            } while (i != rear);
             return output;
         } else {
             return "-1";
         }
     }
-     */
+
 }
