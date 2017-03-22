@@ -1,0 +1,63 @@
+// ===== LINK LIST =====
+// --- set/remove at first                 O(1) ---
+// --- find/remove/insert at specific item O(N) ---
+Quickly than Array, Array requires offsets.
+LinkList sets the required memory than Vector (dynamic array expansion).
+
+// Example
+// --- You have a list, this list have a link to first element (null) ---
+ _______
+| first |
+|  _|_  |
+| |___|-|--null
+|_______|
+
+// --- You can to add an item to this list. This item has 2, and more fields (data, next) ---
+ _______    ______
+|       |  | data |
+| first |  |  _|  |
+|   |   |  | |57| |
+|   |   |  |      |
+|   |   |  | next |
+|  _|_  |  |  _|  |
+| |___|-|--|-|__|-|--null
+|_______|  |______|
+
+// --- Add still one element ---
+ _______    ______
+|       |  | data |
+| first |  |  _|  |
+|   |   |  | |57| |
+|   |   |  |      |
+|   |   |  | next |
+|  _|_  |  |  _|  |
+| |___| |  | |__|-|--null
+|___|___|  |___|__|
+    |  ______  |
+    | | data | |
+    | |  _|  | |
+    | | |14| | |
+    | |      | |
+    | | next | |
+    | |  _|  | |
+    |-|-|__|-|-|
+      |______|
+
+// --- Delete one of item ---
+ _______    ______    ______          _______    ______
+|       |  | data |  | data |        |       |  | data |
+| first |  |  _|  |  |  _|  |        | first |  |  _|  |
+|   |   |  | |14| |  | |57| |        |   |   |  | |57| |
+|   |   |  |      |  |      |        |   |   |  |      |
+|   |   |  | next |  | next |        |   |   |  | next |
+|  _|_  |  |  _|  |  |  _|  |        |  _|_  |  |  _|  |
+| |___| |  | |__| |  | |__|-|--null  | |___|-|--|-|__|-|--null
+|___|___|  |______|  |___|__|        |_______|  |______|
+    |                    |
+    |--------------------|
+
+// ===== SORTED LINK LIST =====
+// --- insert/remove O(N) [(middle O(N/2)), (find/remove smaller element O(1))] ---
+Quickly inserts an element at the beginning of the List, then an Array, the Array must shift the remaining elements to the right.
+You can quickly sort an Array using Sorted Link List. N*2 copy operation is better than Insert Sort in Array with N^2.
+The disadvantage is the use twice more the memory.
