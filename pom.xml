@@ -18,6 +18,8 @@
         <module>Structure/Queue</module>
         <module>Structure/Deque</module>
         <module>Structure/Link</module>
+        <module>Structure/DoubleLink</module>
+        <module>Structure/Iterator</module>
     </modules>
 
 </project>
