@@ -20,6 +20,11 @@
         <module>Structure/Link</module>
         <module>Structure/DoubleLink</module>
         <module>Structure/Iterator</module>
+        <module>Others/Stack/Brackets</module>
+        <module>Others/Stack/Postfix</module>
+        <module>Others/Recursion/Triangle</module>
+        <module>Others/Recursion/Factorial</module>
+        <module>Others/Recursion/Anagram</module>
     </modules>
 
 </project>
