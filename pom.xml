@@ -25,6 +25,7 @@
         <module>Others/Recursion/Triangle</module>
         <module>Others/Recursion/Factorial</module>
         <module>Others/Recursion/Anagram</module>
+        <module>Others/Recursion/Sort-Binary</module>
     </modules>
 
 </project>
