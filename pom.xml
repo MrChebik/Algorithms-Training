@@ -26,6 +26,7 @@
         <module>Others/Recursion/Factorial</module>
         <module>Others/Recursion/Anagram</module>
         <module>Others/Recursion/Sort-Binary</module>
+        <module>Others/Recursion/Hanoi-Tower</module>
     </modules>
 
 </project>
