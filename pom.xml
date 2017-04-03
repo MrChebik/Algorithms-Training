@@ -27,6 +27,7 @@
         <module>Others/Recursion/Anagram</module>
         <module>Others/Recursion/Sort-Binary</module>
         <module>Others/Recursion/Hanoi-Tower</module>
+        <module>Sort/Merge</module>
     </modules>
 
 </project>
