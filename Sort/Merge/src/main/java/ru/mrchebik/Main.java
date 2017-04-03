@@ -21,6 +21,7 @@ public class Main {
         System.out.println(Arrays.toString(array));
     }
 
+    // --- O(N * log N) ---
     public static void mergeSort() {
         long[] workSpace = new long[array.length];
         recMergeSort(workSpace, 0, array.length - 1);
