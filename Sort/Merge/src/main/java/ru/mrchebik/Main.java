@@ -27,9 +27,7 @@ public class Main {
     }
 
     private static void recMergeSort(long[] workSpace, int lower, int upper) {
-        if (lower == upper) {
-            return;
-        } else {
+        if (lower != upper) {
             int mid = (lower + upper) / 2;
             recMergeSort(workSpace, lower, mid);
             recMergeSort(workSpace, mid + 1, upper);
