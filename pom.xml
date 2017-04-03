@@ -28,6 +28,7 @@
         <module>Others/Recursion/Sort-Binary</module>
         <module>Others/Recursion/Hanoi-Tower</module>
         <module>Sort/Merge</module>
+        <module>Others/Recursion/Exponentiation</module>
     </modules>
 
 </project>
