@@ -26,14 +26,12 @@ public class Main {
         }
 
         if (number + 1 == items.length && actual + items[number] != expected) {
-            if (length == 0) {
+            if (find(backpack[length]) == items.length - 1 || length == 0) {
                 return -1;
             }
-            if (find(backpack[length]) == items.length - 1) {
-                return -1;
-            }
+            int temp = find(backpack[--length]);
 
-            return addToBackpack(expected, find(backpack[length - 1]) + 1, actual - items[find(backpack[--length])]);
+            return addToBackpack(expected, temp + 1, actual - items[temp]);
         }
 
         if (actual + items[number] <= expected) {
