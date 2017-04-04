@@ -9,11 +9,11 @@ public class Main {
     private static int length = 0;
 
     public static void main(String[] args) {
-        doAdd(20);
+        doAdd(10);
     }
 
     public static void doAdd(int expected) {
-        addToBackpack(expected, 0, 0);
+        System.out.print("Find:     " + (addToBackpack(expected, 0, 0) != -1) + "\nBackpack: ");
 
         for (int i = 0; i < length; i++) {
             System.out.print(backpack[i] + " ");
