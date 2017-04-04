@@ -4,7 +4,7 @@ package ru.mrchebik;
  * Created by mrchebik on 01.04.17.
  */
 public class Main {
-    private static char[] arrChar = "abcd".toCharArray();
+    private static char[] arrChar = "cats".toCharArray();
     private static int size = arrChar.length;
     private static int count = 0;
 

@@ -29,6 +29,7 @@
         <module>Others/Recursion/Hanoi-Tower</module>
         <module>Sort/Merge</module>
         <module>Others/Recursion/Exponentiation</module>
+        <module>Others/Recursion/Backpack</module>
     </modules>
 
 </project>
