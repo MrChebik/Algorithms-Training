@@ -30,6 +30,7 @@
         <module>Sort/Merge</module>
         <module>Others/Recursion/Exponentiation</module>
         <module>Others/Recursion/Backpack</module>
+        <module>Others/Recursion/Combination</module>
     </modules>
 
 </project>
