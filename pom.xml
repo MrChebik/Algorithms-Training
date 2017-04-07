@@ -33,6 +33,7 @@
         <module>Others/Recursion/Combination</module>
         <module>Sort/Shell</module>
         <module>Others/Partition</module>
+        <module>Sort/Quick</module>
     </modules>
 
 </project>
