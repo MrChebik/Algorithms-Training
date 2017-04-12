@@ -20,24 +20,22 @@ public class Main {
     }
 
     public static void bitwise(int col) {
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < standartNumbers.length; j++) {
-                if (standartNumbers[j].charAt(col) == i + 48) {
-                    numbers[i].add(standartNumbers[j]);
+        for (; col > -1; col--) {
+            for (int i = 0; i < 10; i++) {
+                for (int j = 0; j < standartNumbers.length; j++) {
+                    if (standartNumbers[j].charAt(col) == i + 48) {
+                        numbers[i].add(standartNumbers[j]);
+                    }
                 }
             }
-        }
 
-        int i = 0;
+            int i = 0;
 
-        for (int j = 0; j < 10; j++) {
-            while (!numbers[j].isEmpty()) {
-                standartNumbers[i++] = String.valueOf(numbers[j].remove());
+            for (int j = 0; j < 10; j++) {
+                while (!numbers[j].isEmpty()) {
+                    standartNumbers[i++] = String.valueOf(numbers[j].remove());
+                }
             }
-        }
-
-        if (col != 0) {
-            bitwise(col - 1);
         }
     }
 }
