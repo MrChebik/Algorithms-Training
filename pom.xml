@@ -35,6 +35,7 @@
         <module>Others/Partition</module>
         <module>Sort/Quick</module>
         <module>Sort/Bitwise</module>
+        <module>Structure/Tree</module>
     </modules>
 
 </project>
