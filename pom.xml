@@ -34,6 +34,7 @@
         <module>Sort/Shell</module>
         <module>Others/Partition</module>
         <module>Sort/Quick</module>
+        <module>Sort/Bitwise</module>
     </modules>
 
 </project>
