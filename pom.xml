@@ -36,6 +36,7 @@
         <module>Sort/Quick</module>
         <module>Sort/Bitwise</module>
         <module>Structure/Tree</module>
+        <module>Others/Compression/Huffman</module>
     </modules>
 
 </project>
