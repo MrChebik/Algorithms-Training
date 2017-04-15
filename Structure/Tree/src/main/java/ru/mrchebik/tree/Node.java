@@ -1,3 +1,5 @@
+package ru.mrchebik.tree;
+
 /**
  * Created by mrchebik on 12.04.17.
  */

@@ -1,3 +1,5 @@
+package ru.mrchebik.tree;
+
 import java.util.Stack;
 
 /**
@@ -130,9 +132,9 @@ public class Tree {
 
     private void preOrder(Node localRoot) {
         if (localRoot != null) {
+            System.out.println(localRoot.data + " ");
             preOrder(localRoot.leftChild);
             preOrder(localRoot.rightChild);
-            System.out.println(localRoot.data + " ");
         }
     }
 
