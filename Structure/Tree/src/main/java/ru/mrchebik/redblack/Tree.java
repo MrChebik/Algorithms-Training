@@ -5,10 +5,6 @@ import java.util.Stack;
 /**
  * Created by mrchebik on 15.04.17.
  */
-
-/**
- * NOT STABILITY!!!
- */
 public class Tree {
     private Node root;
 
@@ -17,6 +13,7 @@ public class Tree {
     private Node parent;
 
     private byte nElems = 0;
+    private boolean isLeft = false;
 
     public Tree() {
         root = null;
@@ -28,6 +25,8 @@ public class Tree {
             root = newNode;
             newNode.isRed = false;
         } else {
+            boolean isGoAway = false;
+
             Node current = root;
             dad = root;
             grandDad = dad;
@@ -41,9 +40,22 @@ public class Tree {
                 }
                 parent = current;
 
-                doCheck(grandDad, dad, parent, current);
+                if (current.left != null && current.right != null) {
+                    if (current.left.isRed && current.right.isRed) {
+                        current.left.isRed = false;
+                        current.right.isRed = false;
+
+                        if (current != root) {
+                            current.isRed = true;
+                        }
+                    }
+                }
 
                 if (data < current.data) {
+                    if (!isGoAway) {
+                        isLeft = true;
+                        isGoAway = true;
+                    }
                     current = current.left;
                     if (current == null) {
                         newNode.isRed = true;
@@ -58,26 +70,17 @@ public class Tree {
                                     defaultSet(parent);
                                 }
 
-                                if (parent.isRed && newNode.isRed && parent.left == newNode && dad.left == parent && grandDad.left == dad) {
-                                    LrotateRight(grandDad, dad, parent);
-                                } else if (parent.isRed && newNode.isRed && parent.left == newNode && grandDad.right == dad && dad.right == parent) {
-                                    RrotateLeft(dad, parent, newNode);
-                                    RrotateRightRoot();
-                                } else if (parent.isRed && newNode.isRed && parent.left == newNode && grandDad.right == dad && dad.left == parent) {
-                                    RrotateRight(grandDad, dad, parent);
-                                } else if (parent.isRed && newNode.isRed && parent.left == newNode && grandDad.left == dad && dad.right == parent){
-                                    RrotateRight(dad, parent, newNode);
-                                    LrotateRight(grandDad, dad, dad.right);
-                                }
-
-                                doFixCheck();
-                                doFixBlack();
+                                bigCheck(newNode);
                             }
                         }
 
                         return;
                     }
                 } else {
+                    if (!isGoAway) {
+                        isLeft = false;
+                        isGoAway = true;
+                    }
                     current = current.right;
                     if (current == null) {
                         newNode.isRed = true;
@@ -92,20 +95,7 @@ public class Tree {
                                     defaultSet(parent);
                                 }
 
-                                if (parent.isRed && newNode.isRed && parent.right == newNode && dad.right == parent && grandDad.right == dad) {
-                                    RrotateRight(grandDad, dad, parent);
-                                } else if (parent.isRed && newNode.isRed && parent.right == newNode && grandDad.left == dad && dad.left == parent) {
-                                    LrotateLeft(dad, parent, newNode);
-                                    LrotateRightRoot();
-                                } else if (parent.isRed && newNode.isRed && parent.right == newNode && grandDad.right == dad && dad.left == parent) {
-                                    LrotateLeft(dad, parent, newNode);
-                                    RrotateRight(grandDad, dad, dad.left);
-                                } else if (parent.isRed && newNode.isRed && parent.right == newNode && grandDad.left == dad && dad.right == parent) {
-                                    LrotateRight(grandDad, dad, parent);
-                                }
-
-                                doFixCheck();
-                                doFixBlack();
+                                bigCheck(newNode);
                             }
                         }
 
@@ -116,91 +106,76 @@ public class Tree {
         }
     }
 
-    private void doFixCheck() {
-        fixCheck(root, root, null, root);
-    }
-
-    private void fixCheck(Node grandDad, Node dad, Node parent, Node current) {
-        if (current != null) {
-            if (dad != root) {
-                grandDad = dad;
-            }
-            if (parent != null) {
-                dad = parent;
-            }
-            parent = current;
-
-            doCheck(grandDad, dad, parent, current);
-
-            fixCheck(grandDad, dad, parent, current.left);
-            fixCheck(grandDad, dad, parent, current.right);
-        }
-    }
-
-    private void doCheck(Node grandDad, Node dad, Node parent, Node current) {
-        if (current.left != null && current.right != null) {
-            if (current.left.isRed && current.right.isRed) {
-                current.left.isRed = false;
-                current.right.isRed = false;
-
-                if (current != root) {
-                    current.isRed = true;
+    private void bigCheck(Node newNode) {
+        System.out.println(this);
+        System.out.println(grandDad + " // " + dad + " // " + parent + " // " + newNode);
+        if (isLeft) {
+            if (parent.isRed && newNode.isRed) {
+                if (dad.left == parent) {
+                    if (parent.left == newNode) {
+                        System.out.println(1);
+                        LrotateRight(grandDad, dad, parent);
+                    } else if (parent.right == newNode) {
+                        System.out.println(2);
+                        LrotateRight(dad, parent, newNode);
+                        System.out.println(this);
+                        LrotateRight(grandDad, dad, newNode);
+                    }
+                } else {
+                    if (parent.right == newNode) {
+                        System.out.println(3);
+                        LrotateLeft(dad, parent, newNode);
+                    } else {
+                        System.out.println(4);
+                        RrotateRight(dad, parent, newNode);
+                        System.out.println(this);
+                        LrotateRight(grandDad, dad, newNode);
+                    }
+                }
+            } else if (dad.isRed && parent.isRed) {
+                if (dad.left == parent) {
+                    System.out.println(5);
+                    LrotateRightRoot1();
+                } else {
+                    System.out.println(6);
+                    LrotateRight(grandDad, dad, parent);
+                    System.out.println(this);
+                    LrotateRightRoot1();
                 }
             }
-
-            if (dad.left != null) {
-                if (dad.isRed && dad.left.isRed && root.left == dad) {
-                    LrotateRightRoot();
+        } else {
+            if (parent.isRed && newNode.isRed) {
+                if (dad.right == parent) {
+                    if (parent.right == newNode) {
+                        System.out.println(7);
+                        RrotateRight(grandDad, dad, parent);
+                    } else {
+                        System.out.println(8);
+                        RrotateRight(dad, parent, newNode);
+                        System.out.println(this);
+                        RrotateRight(grandDad, dad, newNode);
+                    }
+                } else {
+                    if (parent.left == newNode) {
+                        System.out.println(9);
+                        RrotateLeft(dad, parent, newNode);
+                    } else {
+                        System.out.println(10);
+                        LrotateRight(dad, parent, newNode);
+                        System.out.println(this);
+                        RrotateRight(grandDad, dad, newNode);
+                    }
                 }
-            } else if (dad.left != null) {
-                if (dad.isRed && dad.left.isRed && root.right == dad) {
-                    RrotateLeft(grandDad, dad, current);
-                    RrotateRightRoot();
+            } else if (dad.isRed && parent.isRed) {
+                if (dad.right == parent) {
+                    System.out.println(11);
+                    RrotateRightRoot1();
+                } else {
+                    System.out.println(12);
+                    RrotateRight(grandDad, dad, parent);
+                    System.out.println(this);
+                    RrotateRightRoot1();
                 }
-            } else if (dad.right != null) {
-                if (dad.isRed && dad.right.isRed && root.right == dad) {
-                    RrotateRightRoot();
-                }
-            } else if (dad.right != null) {
-                if (dad.isRed && dad.right.isRed && root.left == dad) {
-                    LrotateLeft(dad, parent, current);
-                    LrotateRightRoot();
-                }
-            }
-
-            if (dad.isRed && parent.isRed && dad.right == parent && grandDad.right == dad) {
-                RrotateRight(grandDad, dad, parent);
-            } else if (dad.isRed && parent.isRed && dad.right == parent && grandDad.left == dad) {
-                LrotateLeft(grandDad, dad, parent);
-                LrotateRightRoot();
-            } else if (dad.isRed && parent.isRed && dad.right == parent && grandDad.right == dad) {
-                LrotateLeft(grandDad, dad, parent);
-                RrotateRight(grandDad, dad, dad.left);
-            } else if (dad.isRed && parent.isRed && dad.right == parent && grandDad.left == dad) {
-                LrotateRight(grandDad, dad, parent);
-            } else if (dad.isRed && parent.isRed && dad.left == parent && grandDad.left == dad) {
-                LrotateRight(grandDad, dad, parent);
-            } else if (dad.isRed && parent.isRed && dad.left == parent && grandDad.right == dad) {
-                RrotateLeft(grandDad, dad, parent);
-                RrotateRightRoot();
-            } else if (dad.isRed && parent.isRed && dad.left == parent && grandDad.right == dad) {
-                RrotateRight(grandDad, dad, parent);
-            } else if (dad.isRed && parent.isRed && dad.left == parent && grandDad.left == dad) {
-                RrotateRight(grandDad, dad, parent);
-                LrotateRight(grandDad, dad, dad.right);
-            }
-        }
-    }
-
-    private void doFixBlack() {
-        int Lblack = needFixBlack(root.left, 0);
-        int Rblack = needFixBlack(root.right, 0);
-
-        if (Math.abs(Lblack - Rblack) > 1) {
-            if (Lblack < Rblack) {
-                RrotateRightRoot();
-            } else {
-                LrotateRightRoot();
             }
         }
     }
@@ -240,34 +215,44 @@ public class Tree {
         root.right = new Node(max);
     }
 
-    private void LrotateRightRoot() {
-        Node temp = root;
+    private void LrotateRightRoot1() {
+        boolean isRoot = false;
+        if (root == grandDad) {
+            isRoot = true;
+        }
 
-        root = root.left;
-        temp.left = root.right;
-        root.right = temp;
+        Node temp = grandDad;
 
-        root.isRed = false;
+        grandDad = grandDad.left;
+        temp.left = grandDad.right;
+        grandDad.right = temp;
+
+        if (isRoot) {
+            root = grandDad;
+        }
+
         grandDad.isRed = false;
-        parent.isRed = false;
-        if (parent.left != null) {
-            parent.left.isRed = false;
+        if (grandDad.left != null) {
+            grandDad.left.isRed = false;
         }
     }
 
     private void LrotateRight(Node grandDad, Node dad, Node parent) {
         grandDad.left = parent;
         if (dad.right == parent) {
+            dad.right = parent.left;
             parent.left = dad;
-            dad.right = null;
         }
         if (dad.left == parent) {
+            dad.left = parent.right;
             parent.right = dad;
-            dad.left = null;
         }
 
         parent.isRed = false;
-        dad.isRed = dad != root;
+        dad.isRed = false;
+        if (parent.left != null) {
+            parent.left.isRed = false;
+        }
     }
 
     private void LrotateLeft(Node dad, Node parent, Node current) {
@@ -276,35 +261,51 @@ public class Tree {
         dad.left = current;
 
 
-        dad.isRed = dad != root;
-        parent.isRed = parent != root;
+        dad.isRed = false;
+        parent.isRed = false;
         current.isRed = false;
+        if (current.right != null) {
+            current.right.isRed = false;
+        }
     }
 
-    private void RrotateRightRoot() {
-        Node temp = root;
+    private void RrotateRightRoot1() {
+        boolean isRoot = false;
+        if (root == grandDad) {
+            isRoot = true;
+        }
+        Node temp = grandDad;
 
-        root = root.right;
-        temp.right = root.left;
-        root.left = temp;
+        grandDad = grandDad.right;
+        temp.right = grandDad.left;
+        grandDad.left = temp;
 
-        root.isRed = false;
-        root.left.isRed = false;
+        if (isRoot) {
+            root = grandDad;
+        }
+
+        grandDad.isRed = false;
+        grandDad.right.isRed = false;
     }
 
     private void RrotateRight(Node grandDad, Node dad, Node parent) {
         grandDad.right = parent;
         if (dad.right == parent) {
+            dad.right = parent.left;
             parent.left = dad;
-            dad.right = null;
         }
         if (dad.left == parent) {
+            dad.left = parent.right;
             parent.right = dad;
-            dad.left = null;
         }
 
         parent.isRed = false;
-        dad.isRed = dad != root;
+        dad.isRed = false;
+        if (parent.right != null) {
+            parent.right.isRed = false;
+        } else {
+            parent.left.isRed = false;
+        }
     }
 
     private void RrotateLeft(Node dad, Node parent, Node current) {
@@ -315,6 +316,9 @@ public class Tree {
         dad.isRed = dad != root;
         parent.isRed = true;
         current.isRed = false;
+        if (current.left != null) {
+            current.left.isRed = false;
+        }
     }
 
     private void defaultSet(Node parent) {
@@ -326,18 +330,6 @@ public class Tree {
             parent.right.isRed = false;
             parent.left.isRed = false;
         }
-    }
-
-    private int needFixBlack(Node node, int col) {
-        if (node != null) {
-            if (!node.isRed) {
-                col++;
-            }
-            col = needFixBlack(node.left, col);
-            col = needFixBlack(node.right, col);
-        }
-
-        return col;
     }
 
     public Node find(int key) {
