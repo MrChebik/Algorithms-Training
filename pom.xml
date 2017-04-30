@@ -37,6 +37,7 @@
         <module>Sort/Bitwise</module>
         <module>Structure/Tree</module>
         <module>Others/Compression/Huffman</module>
+        <module>Structure/Hash</module>
     </modules>
 
 </project>
