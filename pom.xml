@@ -39,6 +39,7 @@
         <module>Others/Compression/Huffman</module>
         <module>Structure/Hash</module>
         <module>Structure/Heap</module>
+        <module>Sort/HeapSort</module>
     </modules>
 
 </project>
