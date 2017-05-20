@@ -40,6 +40,9 @@
         <module>Structure/Hash</module>
         <module>Structure/Heap</module>
         <module>Sort/HeapSort</module>
+        <module>Structure/Graph</module>
+        <module>Sort/Topo-Graph</module>
+        <module>Others/Graph/Shortest Path</module>
     </modules>
 
 </project>
